@@ -11,7 +11,6 @@ namespace Game_caro
 {
     public class ChessBoardManager
     {
-
         #region Properties
         private Panel chessBoard;
 
@@ -49,7 +48,6 @@ namespace Game_caro
                 playerMarked -= value;
             }
         }
-
         private event EventHandler endedGame;
         public event EventHandler EndedGame
         {
@@ -81,10 +79,7 @@ namespace Game_caro
             };
            
         }
-
-        
         #endregion
-
         #region Methods
         public void DrawChessBoard()
         {
@@ -92,7 +87,6 @@ namespace Game_caro
             chessBoard.Controls.Clear();
             PlayTimeLine = new Stack<PlayInfo>();
             Currentplayer = 0;
-
             ChangePlayer();
             Matrix = new List<List<Button>>();
             Button oldButton = new Button() { Width = 0, Location = new Point(0, 0) };
@@ -109,9 +103,7 @@ namespace Game_caro
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Tag = i.ToString()
                     };
-
                     btn.Click += Btn_Click;
-
                     chessBoard.Controls.Add(btn);
                     Matrix[i].Add(btn);
                     oldButton = btn;
@@ -121,13 +113,10 @@ namespace Game_caro
                 oldButton.Height = 0;
             }
         }
-
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-
             if (btn.BackgroundImage != null) return;
-
             Mark(btn);
             PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), Currentplayer));
             Currentplayer = Currentplayer == 1 ? 0 : 1;
@@ -137,8 +126,7 @@ namespace Game_caro
             if (isEndGame(btn))
             {
                 EndGame();
-            }
-            
+            } 
         }
         public void EndGame()
         {
@@ -168,8 +156,7 @@ namespace Game_caro
             return isEndHorizonta(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
         }
         private Point GetChessPoint(Button btn)
-        {
-            
+        { 
             int vertical = Convert.ToInt32(btn.Tag);
             int horizontal = Matrix[vertical].IndexOf(btn);
             Point point = new Point(horizontal,vertical);
@@ -274,18 +261,13 @@ namespace Game_caro
         }
         private void Mark(Button btn)
         {
-            btn.BackgroundImage = Player[Currentplayer].Mark;
-
-            
+            btn.BackgroundImage = Player[Currentplayer].Mark; 
         }
-
         private void ChangePlayer()
         {
             PlayerName.Text = Player[Currentplayer].Name;
-
             PlayerMark.Image = Player[Currentplayer].Mark;
         }
         #endregion
-
     }
 }
