@@ -138,7 +138,6 @@ namespace Game_caro
                 socket.Send("Thong tin Client");
             }
         }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
