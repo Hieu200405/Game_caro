@@ -62,12 +62,10 @@ namespace Game_caro
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
         }
-
         private void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
         }
-
         private void tmCoolDown_Tick(object sender, EventArgs e)
         {
             prcbCoolDown.PerformStep();
@@ -76,30 +74,24 @@ namespace Game_caro
                 EndGame();
             }    
         }
-
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewGame();
         }
-
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Undo();
         }
-
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Quit();
         }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát ?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 e.Cancel = true;
         }
-
         #endregion
-
         private void btnLan_Click(object sender, EventArgs e)
         {
             socket.IP=txbIP.Text;
