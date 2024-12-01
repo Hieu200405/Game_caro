@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 //Tạo Socket
+//Game
+//Caro
 namespace Game_caro
 {
     public class SocketManager
